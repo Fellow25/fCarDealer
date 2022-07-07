@@ -1,6 +1,5 @@
-local HasAlreadyEnteredMarker, IsInShopMenu = false, false
-local CurrentAction, CurrentActionMsg, LastZone, currentDisplayVehicle, CurrentVehicleData
-CurrentActionData, Vehicles, Categories, AllCurrentVehicle, moneyCarDealer = {}, {}, {}, {}, nil
+local currentDisplayVehicle, CurrentVehicleData
+Vehicles, Categories, AllCurrentVehicle, moneyCarDealer = {}, {}, {}, {}, nil
 
 local ListIndex = 1
 local list  = {_U("blue"), _U("red"), _U("brown"), _U("gold"), _U("green"), _U("tan"), _U("orange"), _U("purple"), _U("yellow"), _U("black"), _U("white")}
@@ -25,7 +24,7 @@ end)
 RegisterNetEvent('esx_vehicleshop:deleteVehicle')
 AddEventHandler('esx_vehicleshop:deleteVehicle', function(vehicle)
 	DeleteVehicle(vehicle)
-end)	
+end)
 
 RegisterNetEvent('esx_vehicleshop:OpenBossMenu')
 AddEventHandler('esx_vehicleshop:OpenBossMenu',function()
@@ -64,16 +63,6 @@ function DeleteDisplayVehicleShop()
 			ESX.Game.DeleteVehicle(currentDisplayVehicle)
 		end
 	end
-end
-
-function StartShopRestriction()
-	CreateThread(function()
-		while IsInShopMenu do
-			Wait(0)
-			DisableControlAction(0, 75,  true)
-			DisableControlAction(27, 75, true)
-		end
-	end)
 end
 
 function getVehicles()
