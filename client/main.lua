@@ -493,6 +493,7 @@ end
 function OpenBossMenu()
 	Menu:Create('menuBoss')
 	refreshCarDealerMoney()
+	Wait(200)
 	local selectedPlayer = {}
 	getEmployee(ESX.PlayerData.job.name)
 	RageUI.Visible(_menuCarDealerBoss, true)
